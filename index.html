@@ -18,7 +18,7 @@
 <section class="card"><div class="tag">04 / РАЗМЕРНАЯ СЕТКА</div><h2>Размерная сетка TRESÓR</h2><details class="size-chart"><summary>Посмотреть таблицу размеров</summary><p class="chart-note">Наша практическая таблица. Все значения в сантиметрах.</p><div class="chart-vertical"><table><thead><tr><th>Российский<br>размер</th><th>Горизонтальная<br>дуга, см</th><th>Обхват под<br>грудью, см</th></tr></thead><tbody><tr class=""><td>70B</td><td>17,5–18</td><td>68–72</td></tr><tr class=""><td>70C</td><td>18–20,5</td><td>68–72</td></tr><tr class=""><td>70D</td><td>20,5–22,5</td><td>68–72</td></tr><tr class=""><td>70E</td><td>22,5–24</td><td>68–72</td></tr><tr class="group-start"><td>75A</td><td>17,5–18</td><td>73–77</td></tr><tr class=""><td>75B</td><td>18–20,5</td><td>73–77</td></tr><tr class=""><td>75C</td><td>20,5–22,5</td><td>73–77</td></tr><tr class=""><td>75D</td><td>22,5–24</td><td>73–77</td></tr><tr class=""><td>75E</td><td>24–25,5</td><td>73–77</td></tr><tr class="group-start"><td>80A</td><td>18–20,5</td><td>78–82</td></tr><tr class=""><td>80B</td><td>20,5–22,5</td><td>78–82</td></tr><tr class=""><td>80C</td><td>22,5–24</td><td>78–82</td></tr><tr class=""><td>80D</td><td>24–25,5</td><td>78–82</td></tr><tr class=""><td>80E</td><td>25,5–26,5</td><td>78–82</td></tr><tr class="group-start"><td>85B</td><td>22,5–24</td><td>83–87</td></tr><tr class=""><td>85C</td><td>24–25,5</td><td>83–87</td></tr><tr class=""><td>85D</td><td>25,5–26,5</td><td>83–87</td></tr></tbody></table></div><p class="chart-note">На границе двух диапазонов выбираем меньшую чашку. За пределами таблицы калькулятор может предложить предварительный размер по расширенной сетке.</p></details></section>
 <section class="gift-visual-section" aria-label="Подарок от TRESÓR"><img src="gift_visual.png?v=14" class="gift-visual" alt="05 / Подарок от TRESÓR. Твои мерки — наш подарок. При первом заказе назови промокод ЛЕНТА — и мы подарим тебе фирменную сантиметровую рулетку. Твой промокод: ЛЕНТА." loading="lazy"><p class="gift-small-note">Промокод <strong>ЛЕНТА</strong> назови при первом заказе. Копировать ничего не нужно 🤎</p></section>
 <footer class="footer"><img src="logo.png?v=5" alt="TRESÓR"><div>Подбор размера — ориентир, а не замена примерке.</div><div>Мерки обрабатываются прямо на твоём устройстве и не отправляются на сервер.</div></footer></main>
-<script>
+<div id="telegramDialog" class="telegram-overlay" hidden><div class="telegram-panel" role="dialog" aria-modal="true" aria-labelledby="telegramDialogTitle"><button id="closeTelegram" class="telegram-close" type="button" aria-label="Закрыть" onclick="document.getElementById('telegramDialog').hidden=true">×</button><div class="telegram-check">✓</div><h3 id="telegramDialogTitle">Сообщение скопировано!</h3><p id="telegramDialogText">Вставь его в чат TRESÓR и отправь — мы поможем подобрать бельё из наличия.</p><textarea id="telegramManual" hidden readonly aria-label="Сообщение для копирования"></textarea><a id="openTelegram" href="https://t.me/tresor_tsk" class="telegram-go" style="display:block;box-sizing:border-box;text-decoration:none;text-align:center" rel="noopener">Открыть Telegram ↗</a><button type="button" id="backToResult" class="telegram-back" onclick="document.getElementById('telegramDialog').hidden=true">Вернуться к результату</button></div></div><div id="savePreview" class="save-preview" hidden role="dialog" aria-modal="true" aria-label="Сохранить изображение"><div class="save-preview-panel"><button id="savePreviewClose" class="save-preview-close" type="button" aria-label="Закрыть">×</button><h3>Твоя карточка готова!</h3><p>На iPhone зажми изображение и выбери «Сохранить в Фото». На компьютере нажми «Скачать PNG».</p><img id="savePreviewImage" alt="Карточка с размером"><a id="savePreviewDownload" class="save-preview-download" download="TRESOR.png">Скачать PNG ↓</a></div></div><script>
 'use strict';
 // Confirmed TRESÓR chart always takes priority. Shared boundaries belong to the smaller cup.
 const bands=[{min:68,max:72,num:70,cups:[['B',17.5,18],['C',18,20.5],['D',20.5,22.5],['E',22.5,24]]},{min:73,max:77,num:75,cups:[['A',17.5,18],['B',18,20.5],['C',20.5,22.5],['D',22.5,24],['E',24,25.5]]},{min:78,max:82,num:80,cups:[['A',18,20.5],['B',20.5,22.5],['C',22.5,24],['D',24,25.5],['E',25.5,26.5]]},{min:83,max:87,num:85,cups:[['B',22.5,24],['C',24,25.5],['D',25.5,26.5]]}];
@@ -80,25 +80,30 @@ function showSavePreview(dataUrl,filename){
  document.body.style.overflow='hidden';
 }
 function closeSavePreview(){document.getElementById('savePreview').hidden=true;document.body.style.overflow='';}
-el('saveImage').addEventListener('click',()=>{
- if(!current||!current.valid)return;
+function saveResultImage(){
+ const overlay=el('savePreview');
+ overlay.hidden=false;
+ document.body.style.overflow='hidden';
+ if(!current||!current.valid){
+   el('savePreviewImage').removeAttribute('src');
+   el('savePreviewDownload').hidden=true;
+   overlay.querySelector('p').textContent='Сначала рассчитай размер, чтобы сохранить карточку.';
+   return;
+ }
  try{
-  const canvas=makeCard();
-  const filename=`TRESOR-${current.size}.png`;
-  const dataUrl=canvas.toDataURL('image/png');
-  const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  if(isMobile){
-    // A visible image works even when Safari ignores the download attribute.
-    showSavePreview(dataUrl,filename);
-  }else{
-    const a=document.createElement('a');a.href=dataUrl;a.download=filename;
-    document.body.appendChild(a);a.click();a.remove();
-    // Keep a manual fallback if browser settings prevent automatic downloads.
-    showSavePreview(dataUrl,filename);
-  }
- }catch(err){alert('Не удалось подготовить изображение. Попробуй открыть сайт в Safari или Chrome.');}
-});
+   const canvas=makeCard();
+   const filename=`TRESOR-${current.size}.png`;
+   const dataUrl=canvas.toDataURL('image/png');
+   showSavePreview(dataUrl,filename);
+   el('savePreviewDownload').hidden=false;
+   overlay.querySelector('p').textContent='Карточка с твоим размером готова. Нажми «Скачать PNG». На iPhone, если скачивание не начинается, зажми картинку и выбери «Сохранить в Фото».';
+ }catch(err){
+   el('savePreviewDownload').hidden=true;
+   overlay.querySelector('p').textContent='Не удалось создать картинку. Попробуй открыть страницу в Safari и повторить.';
+ }
+}
+el('saveImage').addEventListener('click',saveResultImage);
 document.getElementById('savePreviewClose').addEventListener('click',closeSavePreview);
 document.getElementById('savePreview').addEventListener('click',e=>{if(e.target.id==='savePreview')closeSavePreview()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSavePreview()});
-</script><div id="telegramDialog" class="telegram-overlay" hidden><div class="telegram-panel" role="dialog" aria-modal="true" aria-labelledby="telegramDialogTitle"><button id="closeTelegram" class="telegram-close" type="button" aria-label="Закрыть" onclick="document.getElementById('telegramDialog').hidden=true">×</button><div class="telegram-check">✓</div><h3 id="telegramDialogTitle">Сообщение скопировано!</h3><p id="telegramDialogText">Вставь его в чат TRESÓR и отправь — мы поможем подобрать бельё из наличия.</p><textarea id="telegramManual" hidden readonly aria-label="Сообщение для копирования"></textarea><a id="openTelegram" href="https://t.me/tresor_tsk" class="telegram-go" style="display:block;box-sizing:border-box;text-decoration:none;text-align:center" rel="noopener">Открыть Telegram ↗</a><button type="button" id="backToResult" class="telegram-back" onclick="document.getElementById('telegramDialog').hidden=true">Вернуться к результату</button></div></div><div id="savePreview" class="save-preview" hidden role="dialog" aria-modal="true" aria-label="Сохранить изображение"><div class="save-preview-panel"><button id="savePreviewClose" class="save-preview-close" type="button" aria-label="Закрыть">×</button><h3>Твоя карточка готова!</h3><p>На iPhone зажми изображение и выбери «Сохранить в Фото». На компьютере нажми «Скачать PNG».</p><img id="savePreviewImage" alt="Карточка с размером"><a id="savePreviewDownload" class="save-preview-download" download="TRESOR.png">Скачать PNG ↓</a></div></div></body></html>
+</script></body></html>
