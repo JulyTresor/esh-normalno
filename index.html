@@ -11,7 +11,7 @@
 
 /* Version 13: compact vertical chart and approved promotional visual */
 .chart-vertical{margin-top:16px;width:100%;overflow:hidden}.chart-vertical table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:clamp(11px,3.15vw,15px);text-align:center;color:var(--wine)}.chart-vertical th{font-weight:600;font-size:clamp(10px,2.7vw,14px);line-height:1.3;padding:10px 3px 14px;overflow-wrap:anywhere}.chart-vertical td{padding:7px 3px;line-height:1.25}.chart-vertical th:first-child,.chart-vertical td:first-child{width:24%}.chart-vertical th:nth-child(2),.chart-vertical td:nth-child(2){width:39%}.chart-vertical th:last-child,.chart-vertical td:last-child{width:37%}.chart-vertical tbody{outline:1px solid var(--wine);outline-offset:-1px}.chart-vertical tbody tr:first-child td{padding-top:16px}.chart-vertical tbody tr:last-child td{padding-bottom:16px}.chart-vertical tr.group-start td{padding-top:26px}.gift-visual-section{margin-bottom:19px}.gift-visual{display:block;width:100%;height:auto;border-radius:24px}.gift-small-note{text-align:center;font-size:12px;color:var(--text);line-height:1.5;padding:0 16px}.gift-small-note strong{color:var(--wine)}
-.telegram-back{margin-top:12px;width:100%;padding:13px;border:1px solid #d8bfc7;border-radius:14px;background:transparent;color:#612137;font-size:15px;cursor:pointer}.telegram-close{min-width:44px;min-height:44px;z-index:2}.telegram-panel{max-height:calc(100dvh - 36px);overflow-y:auto}</style></head><body><main><div class="brand"><img src="logo.png?v=5" alt="TRESÓR"></div><header class="hero"><h1>Подберём ваш размер<br>за 5 минут</h1><p>Всего две мерки — и мы подскажем, с какого размера начать примерку.</p></header>
+.telegram-back{margin-top:12px;width:100%;padding:13px;border:1px solid #d8bfc7;border-radius:14px;background:transparent;color:#612137;font-size:15px;cursor:pointer}.telegram-close{min-width:44px;min-height:44px;z-index:2}.telegram-panel{max-height:calc(100dvh - 36px);overflow-y:auto}</style><style>.save-preview[hidden]{display:none!important}.save-preview{position:fixed;inset:0;background:rgba(31,15,22,.66);z-index:100001;display:flex;align-items:center;justify-content:center;padding:15px}.save-preview-panel{position:relative;box-sizing:border-box;background:#fcf8f3;color:#612137;border-radius:22px;padding:22px 18px 18px;width:min(100%,450px);max-height:92dvh;overflow:auto;text-align:center}.save-preview-panel h3{font-family:Georgia,serif;font-size:26px;margin:8px 30px 6px}.save-preview-panel p{font-size:14px;line-height:1.5;margin:0 0 12px}.save-preview-panel img{display:block;width:auto;max-width:100%;height:auto;max-height:52dvh;margin:auto;border-radius:10px;-webkit-touch-callout:default;user-select:auto}.save-preview-close{position:absolute;right:12px;top:8px;border:0;background:transparent;color:#612137;font-size:32px;min-width:44px;min-height:44px;cursor:pointer}.save-preview-download{display:block;margin-top:14px;background:#612137;color:white;text-decoration:none;border-radius:12px;padding:14px;font-weight:700}</style></head><body><main><div class="brand"><img src="logo.png?v=5" alt="TRESÓR"></div><header class="hero"><h1>Подберём ваш размер<br>за 5 минут</h1><p>Всего две мерки — и мы подскажем, с какого размера начать примерку.</p></header>
 <section class="card"><div class="tag">01 / СНИМАЕМ МЕРКИ</div><h2>Сначала сантиметр.</h2><p>Понадобится мягкая сантиметровая лента. Измеряй себя в мягком белье без поролона. Не перетягивай ленту.</p><div class="measure-wrap"><img class="measure-art" src="measurements.png?v=11" alt="Схемы измерения горизонтальной дуги одной груди и обхвата под грудью" loading="lazy"><svg class="tape-motion" viewBox="0 0 1024 1536" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="tresor-glint" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#fff9ed" stop-opacity="0"/><stop offset=".30" stop-color="#fff9ed" stop-opacity=".15"/><stop offset=".50" stop-color="#fffdf5" stop-opacity=".85"/><stop offset=".70" stop-color="#fff9ed" stop-opacity=".15"/><stop offset="1" stop-color="#fff9ed" stop-opacity="0"/></linearGradient><clipPath id="tresor-upper-tape" clipPathUnits="userSpaceOnUse"><path d="M663 513 Q666 510 671 511 Q749 508 830 490 Q838 488 840 496 L841 515 Q836 520 828 521 Q746 537 679 543 Q670 543 667 537 Z"/></clipPath><clipPath id="tresor-lower-tape" clipPathUnits="userSpaceOnUse"><path d="M547 1052 Q559 1053 569 1057 Q687 1082 825 1057 L832 1053 L833 1079 Q829 1085 822 1088 Q684 1110 565 1084 Q554 1081 550 1074 Z"/></clipPath></defs><g clip-path="url(#tresor-upper-tape)"><rect class="tape-glint" x="600" y="480" width="90" height="75"/></g><g clip-path="url(#tresor-lower-tape)"><rect class="tape-glint under" x="500" y="1040" width="95" height="80"/></g></svg></div><div class="note"><strong>Если грудь асимметрична:</strong> измерь горизонтальную дугу обеих грудей и для расчёта используй мерку <strong>большей</strong>.</div></section>
 <section class="card" id="calculator"><div class="tag">02 / ТВОИ МЕРКИ</div><h2>Теперь посчитаем.</h2><form id="form"><div class="fields"><div><label for="under">Под грудью, см</label><input id="under" inputmode="decimal" type="text" placeholder="Например, 74" autocomplete="off" required></div><div><label for="arc">Горизонтальная дуга, см</label><input id="arc" inputmode="decimal" type="text" placeholder="Например, 21" autocomplete="off" required></div></div><button class="button" type="submit">Узнать свой размер →</button></form><div class="result" id="result" role="status" aria-live="polite"><div class="tag" id="resultTag"></div><div class="size" id="size"></div><p id="resultText"></p><p class="subtle" id="resultNote"></p><div class="result-actions"><button type="button" id="saveImage" class="action-btn secondary">Сохранить изображение ↓</button><button type="button" id="telegram" class="action-btn primary">Написать в Telegram ↗</button></div></div></section>
 <section class="card"><div class="tag">03 / ВАЖНО ЗНАТЬ</div><h2>Размер — начало, а не финал.</h2><p>Даже при точных мерках посадка зависит от формы груди, конструкции чашки и конкретной модели. Наш расчёт — ориентир для начала примерки. Окончательный размер зависит от модели и посадки.</p><p>Всегда ориентируйся прежде всего на свои ощущения: размерные сетки у разных производителей отличаются.</p><div class="divider"></div><h2>Как понять, что бюстгальтер сидит правильно?</h2><ul class="checklist"><li><strong>Пояс.</strong> Расположен параллельно полу, плотно прилегает и не задирается на спине. Именно пояс обеспечивает основную поддержку груди.</li><li><strong>Чашки.</strong> Грудь полностью находится в чашках, ничто её не пережимает. Верхний край не должен делить грудь пополам: если грудь выпирает над ним, чашка может быть мала или не подходить по форме.</li><li><strong>Косточки.</strong> Проходят под грудью, огибают её основание и не давят на мягкие ткани, в том числе со стороны подмышек.</li><li><strong>Перемычка.</strong> В бюстгальтере с косточками центральная часть между чашками должна прилегать к грудине, а не висеть перед ней.</li><li><strong>Бретели.</strong> Комфортно лежат на плечах и не врезаются в кожу. Их длину регулируют с учётом роста, пропорций корпуса и положения груди — не для того, чтобы подтянуть грудь к подбородку.</li></ul><div class="note">Грудь должна находиться <strong>В чашке</strong>, а не пытаться из неё сбежать! 🤎</div></section>
@@ -54,8 +54,8 @@ el('form').addEventListener('submit',e=>{e.preventDefault();const u=parse(el('un
 function telegramMessage(){if(!current)return '';const u=current.under,a=current.arc;if(current.valid)return `Здравствуйте! Я подобрала размер на сайте TRESÓR. Мои мерки: под грудью ${u} см, горизонтальная дуга ${a} см. ${current.preliminary?'Предварительный размер':'Получился размер'} — ${current.size}. Подскажите, пожалуйста, какие модели есть в наличии и что вы можете порекомендовать?`;return `Здравствуйте! Я воспользовалась калькулятором на сайте TRESÓR. Мои мерки: под грудью ${u} см, горизонтальная дуга ${a} см. Сайт предложил индивидуальный подбор. Подскажите, пожалуйста, какой размер и какие модели из наличия вы можете порекомендовать?`}
 function showTelegramDialog(copied,msg){
  const dialog=el('telegramDialog');
- el('telegramDialogTitle').textContent='Размер определён!';
- el('telegramDialogText').textContent=copied?'Напиши нам в Telegram — поможем подобрать комплект из наличия. Мы уже скопировали сообщение с твоим размером: просто вставь его в чат и отправь.':'Напиши нам в Telegram — поможем подобрать комплект из наличия. Сообщение с твоим размером готово ниже: скопируй его и вставь в чат.';
+ el('telegramDialogTitle').textContent='Сообщение готово!';
+ el('telegramDialogText').textContent=copied?'Мы подготовили сообщение с твоим размером и скопировали его. Открой Telegram, вставь сообщение в чат — и мы поможем подобрать комплект из наличия.':'Мы подготовили сообщение с твоим размером. Скопируй его из поля ниже, открой Telegram и вставь в чат — поможем подобрать комплект из наличия.';
  el('telegramManual').hidden=copied;
  el('telegramManual').value=msg;
  dialog.hidden=false;
@@ -68,35 +68,37 @@ el('telegramDialog').addEventListener('click',e=>{if(e.target===el('telegramDial
 document.addEventListener('keydown',e=>{if(e.key==='Escape')el('telegramDialog').hidden=true});
 function roundedRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect?ctx.roundRect(x,y,w,h,r):(ctx.rect(x,y,w,h));}
 function makeCard(){const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');x.fillStyle='#FAF6F1';x.fillRect(0,0,W,H);x.strokeStyle='#DCC5C9';x.lineWidth=3;roundedRect(x,55,55,W-110,H-110,36);x.stroke();x.textAlign='center';x.fillStyle='#612137';x.font='56px Georgia,serif';x.fillText('TRESÓR',W/2,190);x.font='bold 29px Arial,sans-serif';x.fillStyle='#9B586D';x.fillText('ТВОЙ РАЗМЕР ДЛЯ ПРИМЕРКИ',W/2,330);x.fillStyle='#612137';x.font='210px Georgia,serif';x.fillText(current.size,W/2,650);x.font='37px Arial,sans-serif';x.fillStyle='#6F505B';x.fillText(`Под грудью: ${current.under} см`,W/2,780);x.fillText(`Горизонтальная дуга: ${current.arc} см`,W/2,845);if(current.preliminary){x.font='29px Arial,sans-serif';x.fillText('Предварительно · расширенная размерная сетка',W/2,930)}x.strokeStyle='#DCC5C9';x.beginPath();x.moveTo(140,1020);x.lineTo(W-140,1020);x.stroke();x.font='32px Georgia,serif';x.fillStyle='#612137';x.fillText('Размер — начало, а не финал.',W/2,1100);x.font='27px Arial,sans-serif';x.fillStyle='#6F505B';x.fillText('Главное — правильная посадка.',W/2,1155);return c}
-// On desktop, trigger a direct PNG download from the click gesture.
-// On iPhone/iPad, use the native share sheet to save the picture to Photos.
+// Show a saveable image on iPhone (including in-app browsers), and download on desktop.
+function showSavePreview(dataUrl,filename){
+ const overlay=document.getElementById('savePreview');
+ const img=document.getElementById('savePreviewImage');
+ img.src=dataUrl;
+ img.alt='Карточка с размером '+current.size;
+ document.getElementById('savePreviewDownload').href=dataUrl;
+ document.getElementById('savePreviewDownload').download=filename;
+ overlay.hidden=false;
+ document.body.style.overflow='hidden';
+}
+function closeSavePreview(){document.getElementById('savePreview').hidden=true;document.body.style.overflow='';}
 el('saveImage').addEventListener('click',()=>{
-  if(!current||!current.valid)return;
+ if(!current||!current.valid)return;
+ try{
   const canvas=makeCard();
   const filename=`TRESOR-${current.size}.png`;
+  const dataUrl=canvas.toDataURL('image/png');
   const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  if(isMobile&&navigator.share&&navigator.canShare&&typeof File!=='undefined'){
-    canvas.toBlob(async blob=>{
-      if(!blob)return;
-      const file=new File([blob],filename,{type:'image/png'});
-      if(navigator.canShare({files:[file]})){
-        try{await navigator.share({files:[file],title:'Мой размер TRESÓR'});return;}
-        catch(err){if(err.name==='AbortError')return;}
-      }
-      downloadImage(canvas,filename);
-    },'image/png');
+  if(isMobile){
+    // A visible image works even when Safari ignores the download attribute.
+    showSavePreview(dataUrl,filename);
   }else{
-    downloadImage(canvas,filename);
+    const a=document.createElement('a');a.href=dataUrl;a.download=filename;
+    document.body.appendChild(a);a.click();a.remove();
+    // Keep a manual fallback if browser settings prevent automatic downloads.
+    showSavePreview(dataUrl,filename);
   }
+ }catch(err){alert('Не удалось подготовить изображение. Попробуй открыть сайт в Safari или Chrome.');}
 });
-function downloadImage(canvas,filename){
-  // data URL is supported by desktop browsers and avoids revoked blob URL / popup issues.
-  const a=document.createElement('a');
-  a.href=canvas.toDataURL('image/png');
-  a.download=filename;
-  a.style.display='none';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
-</script><div id="telegramDialog" class="telegram-overlay" hidden><div class="telegram-panel" role="dialog" aria-modal="true" aria-labelledby="telegramDialogTitle"><button id="closeTelegram" class="telegram-close" type="button" aria-label="Закрыть" onclick="document.getElementById('telegramDialog').hidden=true">×</button><div class="telegram-check">✓</div><h3 id="telegramDialogTitle">Сообщение скопировано!</h3><p id="telegramDialogText">Вставь его в чат TRESÓR и отправь — мы поможем подобрать бельё из наличия.</p><textarea id="telegramManual" hidden readonly aria-label="Сообщение для копирования"></textarea><a id="openTelegram" href="https://t.me/tresor_tsk" class="telegram-go" style="display:block;box-sizing:border-box;text-decoration:none;text-align:center" rel="noopener">Открыть Telegram ↗</a><button type="button" id="backToResult" class="telegram-back" onclick="document.getElementById('telegramDialog').hidden=true">Вернуться к результату</button></div></div></body></html>
+document.getElementById('savePreviewClose').addEventListener('click',closeSavePreview);
+document.getElementById('savePreview').addEventListener('click',e=>{if(e.target.id==='savePreview')closeSavePreview()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSavePreview()});
+</script><div id="telegramDialog" class="telegram-overlay" hidden><div class="telegram-panel" role="dialog" aria-modal="true" aria-labelledby="telegramDialogTitle"><button id="closeTelegram" class="telegram-close" type="button" aria-label="Закрыть" onclick="document.getElementById('telegramDialog').hidden=true">×</button><div class="telegram-check">✓</div><h3 id="telegramDialogTitle">Сообщение скопировано!</h3><p id="telegramDialogText">Вставь его в чат TRESÓR и отправь — мы поможем подобрать бельё из наличия.</p><textarea id="telegramManual" hidden readonly aria-label="Сообщение для копирования"></textarea><a id="openTelegram" href="https://t.me/tresor_tsk" class="telegram-go" style="display:block;box-sizing:border-box;text-decoration:none;text-align:center" rel="noopener">Открыть Telegram ↗</a><button type="button" id="backToResult" class="telegram-back" onclick="document.getElementById('telegramDialog').hidden=true">Вернуться к результату</button></div></div><div id="savePreview" class="save-preview" hidden role="dialog" aria-modal="true" aria-label="Сохранить изображение"><div class="save-preview-panel"><button id="savePreviewClose" class="save-preview-close" type="button" aria-label="Закрыть">×</button><h3>Твоя карточка готова!</h3><p>На iPhone зажми изображение и выбери «Сохранить в Фото». На компьютере нажми «Скачать PNG».</p><img id="savePreviewImage" alt="Карточка с размером"><a id="savePreviewDownload" class="save-preview-download" download="TRESOR.png">Скачать PNG ↓</a></div></div></body></html>
